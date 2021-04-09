@@ -7,7 +7,7 @@ router.post('/sign-up', async (req, res, next) => {
 
   if(await usersModel.findOne({email: req.body.email})) {
     console.log('User existe déjà')
-    res.render('https://rainorsun.herokuapp.com/');
+    res.redirect('../');
   } else {
     var newUsers = new usersModel({
       username: req.body.username,
@@ -38,7 +38,7 @@ router.post('/sign-up', async (req, res, next) => {
     res.redirect('/weather'); 
   
   } else {
-      res.redirect('https://rainorsun.herokuapp.com/');
+      res.redirect('../');
     }
   });
   
@@ -47,7 +47,7 @@ router.post('/sign-up', async (req, res, next) => {
       req.session.user = null
       currentUser = null
       console.log(req.session.user);
-      res.redirect('https://rainorsun.herokuapp.com/');
+      res.redirect('../');
   });
 
 module.exports = router;
