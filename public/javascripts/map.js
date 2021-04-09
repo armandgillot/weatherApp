@@ -7,24 +7,25 @@ var mymap = L.map('worldmap',
 }
 );
 
-var customIcon = L.icon({
-    iconUrl: '../images/leaf-green.png',
-    shadowUrl: '../images/leaf-shadow.png',
-   
-    iconSize:   [38, 95],
-    shadowSize:  [50, 64],
-   
-    iconAnchor:  [22, 94],
-    shadowAnchor: [4, 62],  
-   
-    popupAnchor: [-3, -76]
-   });
 
 var listCities = document.getElementsByClassName('listCities');
 for(let i =0; i<listCities.length; i++) {
- var lon = listCities[i].dataset.lon;
- var lat = listCities[i].dataset.lat;
- L.marker([lat, lon]/*, {icon: customIcon}*/).addTo(mymap).bindPopup(listCities[i].dataset.name);
+    var lon = listCities[i].dataset.lon;
+    var lat = listCities[i].dataset.lat;
+    var image = listCities[i].dataset.image;
+    
+    var customIcon = L.icon({
+        iconUrl: image,
+       
+        iconSize:   [50, 50],
+       
+        
+
+       
+        popupAnchor: [-1, -20]
+       });
+    
+ L.marker([lat, lon], {icon: customIcon}).addTo(mymap).bindPopup(listCities[i].dataset.name);
 }
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

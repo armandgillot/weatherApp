@@ -52,7 +52,7 @@
                     <% if (cityList.length> 0) { %>
                         <% for(let i=0; i < cityList.length; i++) { %>
 
-                            <li class="list-group-item d-flex justify-content-between align-items-center m-0 listCities" data-lat="<%= cityList[i].lat %>" data-lon="<%= cityList[i].lon %>" data-name="<%= cityList[i].city %>">
+                            <li class="list-group-item d-flex justify-content-between align-items-center m-0 listCities" data-lat="<%= cityList[i].lat %>" data-lon="<%= cityList[i].lon %>" data-name="<%= cityList[i].city %>" data-image="<%= cityList[i].image %>">
                                 <%= cityList[i].city %>
                                     <span>
                                         <span class="badge rounded-pill bg-success"><%= cityList[i].description %></span> <img src="<%= cityList[i].image %>" alt="">
